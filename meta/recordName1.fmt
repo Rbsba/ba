@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><Record fieldDelimiter="|" name="recordName1" recordDelimiter="\r\n" type="delimited">
+<Field name="field1" type="string"/>
+<Field name="field2" type="string"/>
+<Field name="field3" type="string"/>
+</Record>

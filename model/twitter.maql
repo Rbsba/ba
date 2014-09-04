@@ -1,6 +1,6 @@
 CREATE DATASET {dataset.twitter} VISUAL(TITLE "Twitter");
 INCLUDE TEMPLATE "URN:GOODDATA:DATE" MODIFY (IDENTIFIER "tweet", TITLE "tweet");
-INCLUDE TEMPLATE "URN:GOODDATA:DATE" MODIFY (IDENTIFIER "test", TITLE "test12312");
+INCLUDE TEMPLATE "URN:GOODDATA:DATE" MODIFY (IDENTIFIER "test", TITLE "test");
 CREATE ATTRIBUTE {attr.twitter.factsof} VISUAL(TITLE "Records of Twitter") AS KEYS {f_twitter.id} FULLSET;
 ALTER DATASET {dataset.twitter} ADD {attr.twitter.factsof};
 CREATE ATTRIBUTE {attr.twitter.text} VISUAL(TITLE "Text") AS KEYS {d_twitter_text.id} FULLSET, {f_twitter.text_id};
