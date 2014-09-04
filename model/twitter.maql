@@ -1,0 +1,13 @@
+CREATE DATASET {dataset.twitter} VISUAL(TITLE "Twitter");
+INCLUDE TEMPLATE "URN:GOODDATA:DATE" MODIFY (IDENTIFIER "tweet", TITLE "tweet");
+CREATE ATTRIBUTE {attr.twitter.factsof} VISUAL(TITLE "Records of Twitter") AS KEYS {f_twitter.id} FULLSET;
+ALTER DATASET {dataset.twitter} ADD {attr.twitter.factsof};
+CREATE ATTRIBUTE {attr.twitter.text} VISUAL(TITLE "Text") AS KEYS {d_twitter_text.id} FULLSET, {f_twitter.text_id};
+ALTER DATASET {dataset.twitter} ADD {attr.twitter.text};
+ALTER ATTRIBUTE {attr.twitter.text} ADD LABELS {label.twitter.text} VISUAL(TITLE "Text") AS {d_twitter_text.nm_text};
+CREATE FACT {fact.twitter.retweets} VISUAL(TITLE "Retweets") AS {f_twitter.f_retweets};
+ALTER DATASET {dataset.twitter} ADD {fact.twitter.retweets};
+CREATE FACT {fact.twitter.favorites} VISUAL(TITLE "Favorites") AS {f_twitter.f_favorites};
+ALTER DATASET {dataset.twitter} ADD {fact.twitter.favorites};
+ALTER ATTRIBUTE {tweet.date} ADD KEYS {f_twitter.dt_tweet_id};
+SYNCHRONIZE {dataset.twitter} PRESERVE DATA;
