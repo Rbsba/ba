@@ -11,4 +11,6 @@
 <Field name="field10" type="string"/>
 <Field name="field11" type="string"/>
 <Field name="field12" type="string"/>
+<Field name="field13" type="string"/>
+<Field name="field14" type="string"/>
 </Record>
