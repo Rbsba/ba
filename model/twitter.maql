@@ -1,3 +1,7 @@
+CREATE FOLDER {dim.teste2} VISUAL(TITLE "Teste2") TYPE ATTRIBUTE;
+CREATE FOLDER {ffld.teste2} VISUAL(TITLE "Teste2") TYPE FACT;
+CREATE DATASET {dataset.twitter} VISUAL(TITLE "Twitter");
+CREATE DATASET {dataset.teste2} VISUAL(TITLE "Teste2");
 CREATE FOLDER {dim.teste} VISUAL(TITLE "Teste") TYPE ATTRIBUTE;
 CREATE FOLDER {ffld.teste} VISUAL(TITLE "Teste") TYPE FACT;
 CREATE DATASET {dataset.twitter} VISUAL(TITLE "Twitter");
@@ -11,6 +15,8 @@ ALTER ATTRIBUTE {attr.twitter.text} ADD LABELS {label.twitter.text} VISUAL(TITLE
 CREATE ATTRIBUTE {attr.twitter.name} VISUAL(TITLE "Name") AS KEYS {d_twitter_name.id} FULLSET, {f_twitter.name_id};
 ALTER DATASET {dataset.twitter} ADD {attr.twitter.name};
 ALTER ATTRIBUTE {attr.twitter.name} ADD LABELS {label.twitter.name} VISUAL(TITLE "Name") AS {d_twitter_name.nm_name};
+CREATE ATTRIBUTE {attr.teste2.factsof} VISUAL(TITLE "Records of Teste2", FOLDER {dim.teste2}) AS KEYS {f_teste2.id} FULLSET;
+ALTER DATASET {dataset.teste2} ADD {attr.teste2.factsof};
 CREATE ATTRIBUTE {attr.teste.factsof} VISUAL(TITLE "Records of Teste", FOLDER {dim.teste}) AS KEYS {f_teste.id} FULLSET;
 ALTER DATASET {dataset.teste} ADD {attr.teste.factsof};
 CREATE ATTRIBUTE {attr.teste.text} VISUAL(TITLE "text", FOLDER {dim.teste}) AS KEYS {d_teste_text.id} FULLSET, {f_teste.text_id};
@@ -25,6 +31,12 @@ CREATE FACT {fact.twitter.favorites} VISUAL(TITLE "Favorites") AS {f_twitter.f_f
 ALTER DATASET {dataset.twitter} ADD {fact.twitter.favorites};
 CREATE FACT {fact.twitter.count} VISUAL(TITLE "Count") AS {f_twitter.f_count};
 ALTER DATASET {dataset.twitter} ADD {fact.twitter.count};
+CREATE FACT {fact.teste2.teste} VISUAL(TITLE "Teste", FOLDER {ffld.teste2}) AS {f_teste2.f_teste};
+ALTER DATASET {dataset.teste2} ADD {fact.teste2.teste};
+CREATE FACT {fact.teste2.name} VISUAL(TITLE "Name", FOLDER {ffld.teste2}) AS {f_teste2.f_name};
+ALTER DATASET {dataset.teste2} ADD {fact.teste2.name};
+ALTER ATTRIBUTE {tweet.date} ADD KEYS {f_twitter.dt_tweet_id};
+SYNCHRONIZE {dataset.twitter}, {dataset.teste2} PRESERVE DATA;
 CREATE FACT {fact.teste.favorite} VISUAL(TITLE "Favorite", FOLDER {ffld.teste}) AS {f_teste.f_favorite};
 ALTER DATASET {dataset.teste} ADD {fact.teste.favorite};
 ALTER ATTRIBUTE {tweet.date} ADD KEYS {f_twitter.dt_tweet_id};
