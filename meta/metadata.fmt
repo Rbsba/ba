@@ -9,4 +9,6 @@
 <Field name="field8" type="string"/>
 <Field name="field9" type="string"/>
 <Field name="field10" type="string"/>
+<Field name="field11" type="string"/>
+<Field name="field12" type="string"/>
 </Record>
