@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><Graph author="henrique.makauskas" created="Thu Sep 04 17:48:06 BRT 2014" guiVersion="3.4.4.P" id="1409924474899" licenseType="Commercial" modified="Fri Sep 05 14:47:46 BRT 2014" modifiedBy="henrique.makauskas" name="teste" revision="1.1" showComponentDetails="true">
+<Global>
+<Property fileURL="workspace.prm" id="GraphParameter0"/>
+<Dictionary/>
+</Global>
+<Phase number="0">
+<Node enabled="enabled" guiName="CSV Reader" guiX="113" guiY="93" id="CSV_READER" type="DATA_READER"/>
+<Node enabled="enabled" guiName="Trash" guiX="341" guiY="93" id="TRASH" type="TRASH"/>
+<Edge fromNode="CSV_READER:0" guiBendpoints="" guiRouter="Manhattan" id="Edge0" inPort="Port 0 (in)" outPort="Port 0 (output)" toNode="TRASH:0"/>
+</Phase>
+</Graph>
